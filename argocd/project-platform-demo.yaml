@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: platform-demo
+  namespace: argocd
+spec:
+  description: Demo project per la presentazione - solo namespace default consentito
+  sourceRepos:
+    - https://github.com/Miky186/argocd-demo.git
+  destinations:
+    - namespace: default
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+  namespaceResourceWhitelist:
+    - group: apps
+      kind: Deployment
+    - group: apps
+      kind: DaemonSet
+    - group: ""
+      kind: Service
+    - group: ""
+      kind: ConfigMap
+  orphanedResources:
+    warn: true

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: presentazione-daemonset
+  labels:
+    app: presentazione-daemonset
+spec:
+  selector:
+    matchLabels:
+      system: presentazione-daemonset
+  template:
+    metadata:
+      labels:
+        system: presentazione-daemonset
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27-alpine
+          ports:
+            - containerPort: 80

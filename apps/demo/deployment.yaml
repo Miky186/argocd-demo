@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: presentazione-app
+  labels:
+    app: presentazione-app
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: presentazione-app
+  template:
+    metadata:
+      labels:
+        app: presentazione-app
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.27-alpine
+          ports:
+            - containerPort: 80
