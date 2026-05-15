@@ -17,10 +17,14 @@ spec:
     - group: apps
       kind: Deployment
     - group: apps
+      kind: ReplicaSet
+    - group: apps
       kind: DaemonSet
     - group: ""
       kind: Service
     - group: ""
       kind: ConfigMap
+    - group: ""
+      kind: Pod
   orphanedResources:
     warn: true
